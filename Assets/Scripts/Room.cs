@@ -6,7 +6,9 @@ public class Room : MonoBehaviour
 {
     public int roomfloor;
     public int roomNumber;
-    public bool isUsing;
+    public bool isUsing = false;
+    public bool isEditing = false;
+    public bool dragging = false;
     public string roomType;
     public GameObject room;
 
