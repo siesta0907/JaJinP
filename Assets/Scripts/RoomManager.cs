@@ -7,7 +7,9 @@ public class RoomManager : MonoBehaviour
 {
     public GameObject GuestRoomPrefab;
     public GameObject RestaurantPrefab;
-    public GameObject facility;
+    public GameObject EmptyBackPrefab;
+
+    private GameObject facility;
 
     //시설을 선택한 후, 드래그 드롭으로 배치하고 확정버튼을 누르면 시설이 설치가 됨. 
 

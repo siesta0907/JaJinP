@@ -4,9 +4,4 @@ using UnityEngine;
 
 public class Restaurant : Room
 {
-    private void Start()
-    {
-        roomType = "Restaurant";
-        room = gameObject;
-    }
 }

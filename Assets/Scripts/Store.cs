@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Store : MonoBehaviour
 {
-    // Start is called before the first frame update
     public void BuyFacility()
     {
         
