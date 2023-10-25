@@ -1,47 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StoreManager: MonoBehaviour
 {
     public GameObject StorePanel;
-    public Canvas canvasToCloneTo;
     public Image RoomImage;
-
-    private bool isFollowingMouse;
+    public Text message;
 
 
     public void Start()
     {
-        HidePanel();
-    }
-    public void Update()
-    {
-        if (isFollowingMouse)
-        {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0;
-            RoomImage.transform.position = mousePosition;
-        }
-    
+
+        HideStorePanel();
+        HideTextMessage();
+
     }
 
-    public void ShowPanel()
+    public void ShowStorePanel()
     {
         StorePanel.SetActive(true);
     }
 
-    public void HidePanel()
+    public void HideStorePanel()
     { 
         StorePanel.SetActive(false); 
     }
 
-    public void BuyFacility(GameObject facility)
+    public void ShowTextMessage()
     {
-        RoomImage = facility.GetComponent<Image>();
-        RoomImage.gameObject.SetActive(true);
-        isFollowingMouse = true;
+        message.gameObject.SetActive(true);
+    }
+    public void HideTextMessage()
+    {
+        message.gameObject.SetActive(false);
+    }
+
+
+    public void BuyFacility(string roomType)
+    {
+        string txt= "설치할 곳을 클릭해주세요!";
+        message.text = txt;
+        ShowTextMessage();
+        HideStorePanel();
+        RoomManager.Instance.makeRoom(roomType);
     }
 
 }

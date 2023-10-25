@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Room : MonoBehaviour
+public class Room : MonoBehaviour, IPointerClickHandler
 {
     public int roomfloor;
     public int roomNumber;
@@ -11,9 +12,12 @@ public class Room : MonoBehaviour
     public bool isRoomEditing = false;
     public string roomType;
     protected GameObject room;
+    private Image imageComponent;
+
 
     public void Start()
     {
+        imageComponent = GetComponent<Image>();
         room = gameObject;
         int index = transform.parent.GetSiblingIndex();
         roomfloor = index;
@@ -21,4 +25,12 @@ public class Room : MonoBehaviour
         roomNumber = index;
     }
 
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        if (RoomManager.Instance.isRoomEditing)
+        {
+            Debug.Log("Å¬¸¯µÊ");
+            RoomManager.Instance.roomEditing = gameObject;
+        }
+    }
 }
