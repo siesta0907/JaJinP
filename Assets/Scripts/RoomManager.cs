@@ -8,6 +8,7 @@ public class RoomManager : MonoBehaviour
     public GameObject GuestRoomPrefab;
     public GameObject RestaurantPrefab;
     public GameObject EmptyBackPrefab;
+    public bool isEditing = false;
 
     private GameObject facility;
 
@@ -26,7 +27,7 @@ public class RoomManager : MonoBehaviour
                 break;
             default: break;
         }
-        room.isEditing = false;
+        room.isRoomEditing = false;
         
     }
 
@@ -34,7 +35,7 @@ public class RoomManager : MonoBehaviour
     //Edit모드에서 시설을 선택하면, 드래그 드롭으로 배치하고 확정버튼을 누르면 시설이 이동 배치됨.
     public void EditRoom(Room room)
     {
-        room.isEditing = true;
+        room.isRoomEditing = true;
         arrangeRoom(room);
 
     }

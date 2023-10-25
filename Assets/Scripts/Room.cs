@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Room : MonoBehaviour
 {
-    protected int roomfloor;
-    protected int roomNumber;
+    public int roomfloor;
+    public int roomNumber;
     public bool isUsing = false;
-    public bool isEditing = false;
+    public bool isRoomEditing = false;
     public string roomType;
     protected GameObject room;
 
